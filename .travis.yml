@@ -1,3 +1,4 @@
+sudo: requiredgit
 machine:
   services:
     - docker
