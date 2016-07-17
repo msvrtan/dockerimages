@@ -5,9 +5,11 @@ services:
   - docker
 
 script:
-  - if [ "$TRAVIS_BRANCH" == "dev" ]; then ./images/php7-fpm-trusty64/update_image.sh ; fi
+  - ./images/php7-fpm-trusty64/update_image.sh
+  - ./images/nginx-symfony-trusty64/update_image.sh
 
 after_success:
   - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASSWORD
   - if [ "$TRAVIS_BRANCH" == "dev" ]; then ./images/php7-fpm-trusty64/update_image.sh --deploy ; fi
+  - if [ "$TRAVIS_BRANCH" == "dev" ]; then ./images/nginx-symfony-trusty64/update_image.sh --deploy ; fi
 
