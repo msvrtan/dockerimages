@@ -1,0 +1,6 @@
+---
+docker_package_name: docker-engine
+docker_compose_version: 1.7.0
+parameters:
+  privileged_user: root
+  luser: vagrant

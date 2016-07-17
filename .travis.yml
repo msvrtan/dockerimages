@@ -1,16 +1,13 @@
 sudo: required
-language: c
-machine:
-  services:
-    - docker
+dist: trusty
+language: generic
+services:
+  - docker
 
-test:
-  override:
-    - ./images/php7-fpm-trusty64/update_image.sh
+script:
+  - if [ "$TRAVIS_BRANCH" == "dev" ]; then ./images/php7-fpm-trusty64/update_image.sh ; fi
 
-deployment:
-  hub:
-    branch: dev
-    commands:
-      - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
-      - ./images/php7-fpm-trusty64/update_image.sh --deploy
+after_success:
+  - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASSWORD
+  - if [ "$TRAVIS_BRANCH" == "dev" ]; then ./images/php7-fpm-trusty64/update_image.sh --deploy ; fi
+

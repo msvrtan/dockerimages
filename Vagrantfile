@@ -10,7 +10,7 @@ Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/trusty64"
   config.vm.hostname = "nulldevelopmenthr-dockerimages"
 
-  config.vm.network 'private_network', ip: '192.168.18.1'
+  config.vm.network 'private_network', ip: '192.168.18.10'
 
   config.vm.synced_folder './', '/vagrant', id: 'application', type: "nfs"
 

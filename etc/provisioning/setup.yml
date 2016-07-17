@@ -1,0 +1,8 @@
+---
+- hosts: servers
+  vars_files:
+    - settings.yml
+  roles:
+    - ubuntu-server
+    - docker
+
