@@ -20,8 +20,6 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 8B3981E7A6
   && apt-get install -y ca-certificates nginx gettext-base
 
 
-COPY configs/nginx/nginx.conf /etc/nginx/nginx.conf
-COPY configs/nginx/fastcgi_params /etc/nginx/fastcgi_params
 COPY configs/nginx/localhost.conf /etc/nginx/sites-enabled/localhost.conf
 COPY configs/nginx/test.conf /etc/nginx/sites-enabled/test.conf
 COPY configs/nginx/ssl/localhost.crt  /etc/nginx/ssl/localhost.crt
