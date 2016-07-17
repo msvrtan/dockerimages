@@ -1,4 +1,5 @@
-sudo: requiredgit
+sudo: required
+language: c
 machine:
   services:
     - docker
